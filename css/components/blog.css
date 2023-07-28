@@ -1,0 +1,145 @@
+/* Estilos para o blog */
+.blog__content {
+    text-align: center;
+    padding-bottom: 10px;
+    scroll-margin-top: 5rem;
+}
+
+.blog__posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.blog__post {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+}
+.blog-post a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007bff;
+    font-size: 16px;
+    text-decoration: none;
+}
+.blog-post a:hover {
+    text-decoration: underline;
+}
+
+.blog-post h2 {
+    color: #444;
+    font-size: 28px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.blog__post h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.blog__post p.blog__post-date {
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.blog__post p {
+    margin-bottom: 15px;
+}
+
+.blog__post a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.blog__post a:hover {
+    text-decoration: underline;
+}
+
+/* ... (Estilos CSS existentes não alterados) ... */
+
+.blog__content {
+  margin-top: 30px;
+}
+
+.blog__item {
+  margin-bottom: 30px;
+}
+
+.blog__item img {
+  max-width: 100%;
+  height: auto;
+  float: left;
+  margin-right: 10px;
+}
+
+.blog__item-text {
+  overflow: hidden;
+}
+
+.blog__item-text h3 {
+  margin-top: 0;
+}
+
+.blog {
+    background-color: var(--white);
+    scroll-margin-top: 15rem;
+}
+.blog__content h2{
+    padding: 3rem;
+    text-align: center;
+    width: 100%;
+    align-items: center;    
+}
+
+.blog .blog__content {
+    padding: 6rm 4rem;
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.blog .blog__content .description {
+    max-width: 100%;
+    margin: 0 auto 6rem ;
+}
+
+.blog .blog__content ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 2rem;
+}
+
+.blog .blog__content ul li .image-container {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 50%;
+    width: 7rem;
+    height: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0.4rem 1rem rgba(0,0,0,0.1);
+    margin: auto;
+}
+
+.blog .blog__content ul li h3 {
+   font-size: 1.6rem;
+   font-weight: 500;
+   margin: 2rem 0 1rem;
+}
+
+.blog__1 .blog__content {
+    padding: 6rm 4rem;
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.tend {
+margin: 4rem;
+;
+}
+/* ... (Outros estilos podem ser adicionados conforme necessário) ... */
+

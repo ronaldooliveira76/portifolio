@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria de Certificados</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1 class="title">Galeria de Certificados</h1>
+  <div class="menu">
+    <button class="filter-btn" onclick="filterCategory('all')">Todas</button>
+    <button class="filter-btn" onclick="filterCategory('Front-end')">Front-end</button>
+    <button class="filter-btn" onclick="filterCategory('Programação')">Programação</button>
+    <button class="filter-btn" onclick="filterCategory('DevOps')">DevOps</button>
+    <button class="filter-btn" onclick="filterCategory('Mobile')">Mobile</button>
+    <button class="filter-btn" onclick="filterCategory('Inovação & Gestão')">Inovação & Gestão</button>
+    <button class="filter-btn" onclick="filterCategory('Data Science')">Data Science</button>
+  </div>
+  <div class="gallery" id="image-gallery">
+    <!-- As imagens serão adicionadas dinamicamente aqui -->
+  </div>
+  <div id="certificate-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modal-title"></h2>
+      <p>Data: <span id="modal-date"></span></p>
+      <p>Resumo do Curso: <span id="modal-summary"></span></p>
+      <p>Carga Horária: <span id="modal-duration"></span></p>
+      <img id="modal-image" src="" alt="" />
+      <a href="#" download id="download-btn">Download</a>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

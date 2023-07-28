@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria de Certificados</title>
+  <style>
+    /* Estilos específicos para a galeria */
+    /* Adicione os estilos de acordo com suas preferências */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: rgb(73,197,182);
+      background: linear-gradient(342deg, #BE98FF 200px, #6D90D4 32%, #033C57 40%);
+      background-attachment: fixed;
+    }
+
+    h1 {
+      text-align: center;
+      color: white;
+      padding: 20px 0;
+    }
+
+    .title {
+      text-align: center;
+      color: white;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .filter-btn {
+      margin: 5px;
+      padding: 8px 16px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+      transition: .35s;
+    }
+
+    .filter-btn{
+      transition: .35s;
+      cursor: pointer;
+    }
+
+    .menu:hover > :not(:hover){
+      opacity: .4;
+      transform: scale(0.9);
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .gallery h2 {
+      width: 100%;
+      text-align: center;
+      color: white;
+    }
+
+    .gallery img {
+      width: 200px;
+      height: 150px;
+      cursor: pointer;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Estilos para o modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-content {
+      position: relative;
+      background-color: white;
+      margin: 10% auto;
+      padding: 20px;
+      max-width: 600px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #aaa;
+      cursor: pointer;
+    }
+
+    .modal-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .modal-info {
+      margin-bottom: 20px;
+    }
+
+    .modal-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .download-btn {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="title">Galeria de Certificados</h1>
+  <div class="menu">
+    <button class="filter-btn" onclick="filterCategory('all')">Todos</button>
+    <button class="filter-btn" onclick="filterCategory('Front-end')">Front-end</button>
+    <button class="filter-btn" onclick="filterCategory('Programação')">Programação</button>
+    <button class="filter-btn" onclick="filterCategory('DevOps')">DevOps</button>
+    <button class="filter-btn" onclick="filterCategory('Mobile')">Mobile</button>
+    <button class="filter-btn" onclick="filterCategory('Inovação & Gestão')">Inovação & Gestão</button>
+    <button class="filter-btn" onclick="filterCategory('UX & Design')">UX & Design</button>
+    <button class="filter-btn" onclick="filterCategory('Data Science')">Data Science</button>
+  </div>
+  <div class="gallery" id="image-gallery"></div>
+
+  <!-- Modal -->
+  <div class="modal" id="certificate-modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 class="modal-title" id="modal-title">Certificado</h2>
+      <p class="modal-info" id="modal-date">Data: 01/01/2023</p>
+      <p class="modal-info" id="modal-summary">Resumo do Curso: Resumo do curso aqui.</p>
+      <p class="modal-info" id="modal-duration">Carga Horária: 10 horas</p>
+      <img class="modal-image" id="modal-image" src="" alt="Certificado" />
+      <button class="download-btn" id="download-btn">Baixar Certificado</button>
+    </div>
+  </div>
+  </style>
+</head>
+ <!-- <h1>Galeria de Certificados</h1>
+  <div>
+    <button onclick="filterCategory('all')">Todos</button>
+    <button onclick="filterCategory('Front-end')">Front-end</button>
+    <button onclick="filterCategory('Programação')">Programação</button>
+    <button onclick="filterCategory('DevOps')">DevOps</button>
+    <button onclick="filterCategory('Mobile')">Mobile</button>
+    <button onclick="filterCategory('Inovação & Gestão')">Inovação & Gestão</button>
+    <button onclick="filterCategory('Data Science')">Data Science</button>
+  </div>
+  <div id="image-gallery"></div>-->
+
+  <script>
+    const imageGallery = document.getElementById('image-gallery');
+    const modal = document.getElementById('certificate-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDate = document.getElementById('modal-date');
+    const modalSummary = document.getElementById('modal-summary');
+    const modalDuration = document.getElementById('modal-duration');
+    const modalImage = document.getElementById('modal-image');
+
+
+// ... Adicione as informações restantes para as outras imagens de certificados ...
+const certificates = [
+
+//... front-end
+  { 
+    category: 'Front-end', 
+    image: 'imagem/front1.jpg', 
+    name: 'Certificado 1',
+    date: '01/01/2023',
+    summary: 'Resumo do Curso 1 - Front-end',
+    duration: '10 horas'
+  },
+  { 
+    category: 'Front-end', 
+    image: 'imagem/front2.jpg', 
+    name: 'Certificado 2',
+    date: '02/01/2023',
+    summary: 'Resumo do Curso 2 - Front-end',
+    duration: '12 horas'
+  },
+  { 
+    category: 'Front-end', 
+    image: 'imagem/front3.jpg', 
+    name: 'Certificado 3',
+    date: '03/01/2023',
+    summary: 'Resumo do Curso 3 - Front-end',
+    duration: '8 horas'
+  },
+  { 
+    category: 'Front-end', 
+    image: 'imagem/front3.jpg', 
+    name: 'Certificado 1',
+    date: '01/01/2023',
+    summary: 'Resumo do Curso 1 - Front-end',
+    duration: '10 horas'
+  },
+  { 
+    category: 'Front-end', 
+    image: 'imagem/front5.jpg', 
+    name: 'Certificado 2',
+    date: '02/01/2023',
+    summary: 'Resumo do Curso 2 - Front-end',
+    duration: '12 horas'
+  },
+  { 
+    category: 'Front-end', 
+    image: 'imagem/front6.jpg', 
+    name: 'Certificado 3',
+    date: '03/01/2023',
+    summary: 'Resumo do Curso 3 - Front-end',
+    duration: '8 horas'
+  },
+  { 
+    category: 'Front-end', 
+    image: 'imagem/front7.jpg', 
+    name: 'Certificado 1',
+    date: '01/01/2023',
+    summary: 'Resumo do Curso 1 - Front-end',
+    duration: '10 horas'
+  },
+  { 
+    category: 'Front-end', 
+    image: 'imagem/front8.jpg', 
+    name: 'Certificado 2',
+    date: '02/01/2023',
+    summary: 'Resumo do Curso 2 - Front-end',
+    duration: '12 horas'
+  },
+  { 
+    category: 'Front-end', 
+    image: 'imagem/front9.jpg', 
+    name: 'Certificado 3',
+    date: '03/01/2023',
+    summary: 'Resumo do Curso 3 - Front-end',
+    duration: '8 horas'
+  },
+  { 
+    category: 'Front-end', 
+    image: 'imagem/front10.jpg', 
+    name: 'Certificado 1',
+    date: '01/01/2023',
+    summary: 'Resumo do Curso 1 - Front-end',
+    duration: '10 horas'
+  },
+  { 
+    category: 'Front-end', 
+    image: 'imagem/front11.jpg', 
+    name: 'Certificado 2',
+    date: '02/01/2023',
+    summary: 'Resumo do Curso 2 - Front-end',
+    duration: '12 horas'
+  },
+  { 
+    category: 'Front-end', 
+    image: 'imagem/front12.jpg', 
+    name: 'Certificado 3',
+    date: '03/01/2023',
+    summary: 'Resumo do Curso 3 - Front-end',
+    duration: '8 horas'
+  },
+// ...programação
+  { 
+    category: 'Programação', 
+    image: 'imagem/prog1.jpg', 
+    name: 'Certificado 4',
+    date: '04/01/2023',
+    summary: 'Resumo do Curso 4 - Programação',
+    duration: '15 horas'
+  },
+  { 
+    category: 'Programação', 
+    image: 'imagem/prog2.jpg', 
+    name: 'Certificado 5',
+    date: '05/01/2023',
+    summary: 'Resumo do Curso 5 - Programação',
+    duration: '20 horas'
+  },
+  { 
+    category: 'Programação', 
+    image: 'imagem/prog3.jpg', 
+    name: 'Certificado 6',
+    date: '06/01/2023',
+    summary: 'Resumo do Curso 6 - Programação',
+    duration: '18 horas'
+  },
+  { 
+    category: 'Programação', 
+    image: 'imagem/prog4.jpg', 
+    name: 'Certificado 4',
+    date: '04/01/2023',
+    summary: 'Resumo do Curso 4 - Programação',
+    duration: '15 horas'
+  },
+  { 
+    category: 'Programação', 
+    image: 'imagem/prog5.jpg', 
+    name: 'Certificado 5',
+    date: '05/01/2023',
+    summary: 'Resumo do Curso 5 - Programação',
+    duration: '20 horas'
+  },
+  { 
+    category: 'Programação', 
+    image: 'imagem/prog6.jpg', 
+    name: 'Certificado 6',
+    date: '06/01/2023',
+    summary: 'Resumo do Curso 6 - Programação',
+    duration: '18 horas'
+  },
+  { 
+    category: 'DevOps', 
+    image: 'imagem/dev1.jpg', 
+    name: 'Certificado 7',
+    date: '07/01/2023',
+    summary: 'Resumo do Curso 7 - DevOps',
+    duration: '12 horas'
+  },
+// ... devops
+  { 
+    category: 'DevOps', 
+    image: 'imagem/dev2.jpg', 
+    name: 'Certificado 8',
+    date: '08/01/2023',
+    summary: 'Resumo do Curso 8 - DevOps',
+    duration: '14 horas'
+  },
+  { 
+    category: 'DevOps', 
+    image: 'imagem/dev3.jpg', 
+    name: 'Certificado 9',
+    date: '09/01/2023',
+    summary: 'Resumo do Curso 9 - DevOps',
+    duration: '16 horas'
+  },
+  { 
+    category: 'DevOps', 
+    image: 'imagem/dev4.jpg', 
+    name: 'Certificado 9',
+    date: '09/01/2023',
+    summary: 'Resumo do Curso 9 - DevOps',
+    duration: '16 horas'
+  },
+// ...mobile
+  { 
+    category: 'Mobile', 
+    image: 'imagem/generica.jpg', 
+    name: 'Certificado 10',
+    date: '10/01/2023',
+    summary: 'Resumo do Curso 10 - Mobile',
+    duration: '10 horas'
+  },
+// ... inovação & gestão 
+  { 
+    category: 'Inovação & Gestão', 
+    image: 'imagem/inov1.jpg', 
+    name: 'Certificado 13',
+    date: '13/01/2023',
+    summary: 'Resumo do Curso 13 - Inovação & Gestão',
+    duration: '10 horas'
+  },
+// ... ux & design  
+  { 
+    category: 'UX & Design', 
+    image: 'imagem/ux1.jpg', 
+    name: 'Certificado 16',
+    date: '16/01/2023',
+    summary: 'Resumo do Curso 16 - UX & Design',
+    duration: '15 horas'
+  },
+  { 
+    category: 'UX & Design', 
+    image: 'imagem/ux2.jpg', 
+    name: 'Certificado 17',
+    date: '17/01/2023',
+    summary: 'Resumo do Curso 17 - UX & Design',
+    duration: '20 horas'
+  },
+// ...  data science
+  { 
+    category: 'Data Science', 
+    image: 'imagem/generica.jpg', 
+    name: 'Certificado 18',
+    date: '//',
+    summary: 'Resumo do Curso - Data Science',
+    duration: 'horas'
+  },
+];
+
+
+// Função para criar a galeria de imagens com base na categoria selecionada
+function createGallery(category) {
+  imageGallery.innerHTML = '';
+  let currentCategory = null;
+
+  certificates.forEach(cert => {
+    if (category === 'all' || cert.category === category) {
+      if (currentCategory !== cert.category) {
+        currentCategory = cert.category;
+        const categoryLabel = document.createElement('h2');
+        categoryLabel.innerText = currentCategory;
+        imageGallery.appendChild(categoryLabel);
+      }
+
+      const img = document.createElement('img');
+      img.src = cert.image;
+      img.alt = cert.name;
+      img.title = cert.name;
+      img.addEventListener('click', () => openCertificateModal(cert));
+      imageGallery.appendChild(img);
+    }
+  });
+}
+
+// Função para abrir o modal com as informações do certificado quando a miniatura é clicada
+function openCertificateModal(cert) {
+  modal.style.display = 'block';
+  modalTitle.innerText = cert.name;
+  modalDate.innerText = `Data: ${cert.date}`;
+  modalSummary.innerText = `Resumo do Curso: ${cert.summary}`;
+  modalDuration.innerText = `Carga Horária: ${cert.duration}`;
+  modalImage.src = cert.image;
+
+  // Configurar o link de download para a imagem do certificado redimensionada
+  const downloadBtn = document.getElementById('download-btn');
+  downloadBtn.addEventListener('click', () => downloadResizedImage(cert.image, `certificado_${cert.name}.jpg`));
+}
+
+// Função para fazer o download da imagem redimensionada
+function downloadResizedImage(imageSrc,fileName ) {
+  const img = new Image();
+
+  img.onload = function () {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+
+    // Defina o tamanho desejado para a imagem redimensionada (2040x1400)
+    const targetWidth = 2040;
+    const targetHeight = 1400;
+
+    canvas.width = targetWidth;
+    canvas.height = targetHeight;
+
+    // Redimensione a imagem
+    ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
+
+    // Crie o link de download para a imagem redimensionada
+    const downloadLink = document.createElement('a');
+    downloadLink.href = canvas.toDataURL('image/jpeg');
+    downloadLink.download = fileName;
+
+    // Dispare o clique no link para iniciar o download
+    downloadLink.click();
+  };
+
+  // Carregue a imagem original no elemento <img>
+  img.src = imageSrc;
+}
+
+// Função para fechar o modal quando o botão "Fechar" ou clicando fora do modal
+function closeModal() {
+  modal.style.display = 'none';
+}
+
+// Evento para fechar o modal ao clicar fora da área do modal
+window.onclick = function (event) {
+  if (event.target === modal) {
+    closeModal();
+  }
+};
+
+// Ao carregar a página, cria a galeria completa
+window.onload = () => createGallery('all');
+
+// Função para filtrar a galeria quando o botão da categoria é clicado
+function filterCategory(category) {
+  createGallery(category);
+}
+
+  </script>
+</body>
+</html>
