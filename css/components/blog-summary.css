@@ -10,7 +10,7 @@ h2{
 /* Adicione as seguintes regras CSS ao seu arquivo extends.css ou dentro de um bloco <style> na seção <head> do seu HTML */
 
 /* Contêiner de vídeo para controlar a proporção de aspecto */
-.video-container {
+.video-abertura {
     position: relative;
     padding-bottom: 56.25%; /* Proporção de aspecto 16:9 (altura / largura) */
     height: 0;
@@ -18,7 +18,7 @@ h2{
   }
   
   /* Iframe dentro do contêiner de vídeo */
-  .video-container iframe {
+  .video-abertura iframe {
     position: absolute;
     top: 0;
     left: 0;
