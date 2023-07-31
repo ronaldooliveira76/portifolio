@@ -51,7 +51,6 @@ header .header__rigth .header__image .background {
  
 }
 
-
 @media only screen and (max-width: 768px) {
     header{
         flex-direction: column-reverse;
@@ -61,4 +60,11 @@ header .header__rigth .header__image .background {
     header .header__left p{
         margin: 2rem auto 4rem;
     }
+    header .header__rigth .header__image .ronaldo {
+        max-width: 150px; /* Defina o valor que você desejar para a largura máxima */
+    }
+
+    header .header__rigth .header__image .background {
+        max-width: auto;
+     }
 }
