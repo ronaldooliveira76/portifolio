@@ -34,7 +34,7 @@ Se você encontrar algum problema, tiver sugestões de melhoria ou desejar contr
 Contato 
 ## Licença
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](https://github.com/ronaldooliveira76/portifolio/blob/main/LICENSE)
 
 
 ## 🛠 Habilidades
@@ -44,7 +44,7 @@ Javascript, HTML, CSS...
 ## 🔗 Links
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://portifolio-ronaldooliveira76.vercel.app/)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ronaldomoliveira/)
-[![instagram](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/)
+[![instagram](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)]()
 
 
 ## Feedback
@@ -61,16 +61,21 @@ Obrigado por estar aqui! :smile:
 
 Se você tiver alguma dúvida, quiser fazer parcerias ou apenas bater um papo, pode entrar em contato comigo por meio das seguintes opções:
 
-E-mail: ronaldomoliveira76@gmail.com
+[![E-mail: 
+](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](ronaldomoliveira76@gmail.com)
 
 LinkedIn: https://www.linkedin.com/in/ronaldomoliveira/
 
-Github: https://github.com/ronaldooliveira76
+[![GitHub: 
+](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](ronaldomoliveira76@gmail.com)
+
+[![: 
+]()]()
 ## Autores
 
 - [@ronaldooliveira76](https://github.com/ronaldooliveira76)
 
-
+	https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white
 ## Aprendizados
 
 O que você aprendeu construindo esse projeto? Quais desafios você enfrentou e como você superou-os?
