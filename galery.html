@@ -150,6 +150,7 @@
   top: 15px;
   right: 15px;
   z-index: 2;
+  display: block;
 }
 
 /* Estilo para o ícone do botão hamburguer (três linhas horizontais) */
@@ -190,6 +191,7 @@
   <button class="hamburger-btn" onclick="toggleMenu()">&#9776;</button>
 
   <div class="menu">
+    <button class="filter-btn" onclick="window.location.href = 'index.html'">Início</button>
     <button class="filter-btn" onclick="filterCategory('all')">Todos</button>
     <button class="filter-btn" onclick="filterCategory('Front-end')">Front-end</button>
     <button class="filter-btn" onclick="filterCategory('Programação')">Programação</button>
